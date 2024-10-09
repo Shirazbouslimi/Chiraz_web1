@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel With Us</title>
+    <link rel="icon" href="images/plane2.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e0f7fa;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0277bd 30%, #00acc1 100%);
+            border-bottom: 5px solid #ff80ab;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+        }
+
+        .nav-container img {
+            width: 100px;
+            height: auto;
+        }
+
+        nav a {
+            color: #ff80ab; /* Change link color to pink */
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff4081; /* Change hover color to a lighter pink */
+        }
+
+        .main-content {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .main-content h1 {
+            font-size: 42px;
+            color: #004d40;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .main-content p {
+            font-size: 20px;
+            color: #00796b;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        h2.section-title {
+            font-size: 30px;
+            color: #004d40;
+            text-transform: uppercase;
+            border-bottom: 2px solid #ff80ab;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+        }
+
+        .offers-table {
+            width: 80%;
+            margin: 0 auto;
+            border: 2px solid #ff80ab;
+            border-radius: 15px;
+            background-color: #b2ebf2;
+            padding: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .offers-table img {
+            width: 85%; /* Adjusted size for Circus and Submarine */
+            border: 3px solid #ff80ab;
+            border-radius: 10px;
+        }
+
+        .offers-table img.cabin {
+            width: 90%; /* Slightly larger Cabin image */
+        }
+
+        .offers-table p {
+            font-size: 18px;
+            color: #ff80ab;
+            margin-top: 10px;
+        }
+
+        .about-section {
+            margin: 1px 0; 
+            text-align: center;
+        }
+
+        .about-section h3 {
+            font-size: 28px;
+            color: #004d40;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            color: #00796b;
+            width: 70%;
+            margin: 0 auto;
+            line-height: 1.6;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .divider img {
+            width: 40px;
+        }
+
+        .divider div {
+            flex: 1;
+            height: 2px;
+            background-color: #ff80ab;
+        }
+        .line-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        .line {
+            flex: 1;
+            height: 2px;
+            background-color: #ff80ab; /* Pink line */
+            margin: 0 10px;
+        }
+        .plane-image {
+            width: 40px; /* Adjust size as necessary */
+            height: auto;
+        }
+        footer {
+            background-color: #0277bd;
+            padding: 30px 40px;
+            border-top: 5px solid #ff80ab;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .contact-link {
+            color: #ff80ab;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: #ff4081;
+        }
+
+        .add-offer-btn {
+            display: inline-block;
+            font-size: 20px;
+            color: white;
+            background-color: #ff80ab;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 15px;
+            transition: background-color 0.3s;
+            margin-top: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .add-offer-btn:hover {
+            background-color: #ff4081;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <img src="images/esprit.png" alt="Logo">
+            <nav>
+                <a href="travel-offers.html">Travel Offers</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html">Dashboard</a>
+            </nav>
+        </div>
+    </header>
+    <div class="main-content">
+        <h1>Travel Booking</h1>
+        <p>Family trips - Couple trips - Adventures and Sport trips</p>
+        <!-- Video Section -->
+
+        <div class="video-section">
+            <video width="80%" autoplay loop muted>
+                <source src="images/travel.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        
+      
+    
+        <h2 class="section-title">Travel Offers</h2>
+    
+        <table class="offers-table">
+            <tr align="center">
+                <td>
+                    <img src="images/circus.png" alt="Circus Travel">
+                    <p>Circus Adventure</p>
+                </td>
+                <td>
+                    <img src="images/cabin.png" alt="Cabin Travel" class="cabin">
+                    <p>Cabin Retreat</p>
+                </td>
+                <td>
+                    <img src="images/submarine.png" alt="Submarine Travel">
+                    <p>Submarine Exploration</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+
+    <div class="about-section">
+        <h3>About Us</h3>
+        <p>A travel agency specializing in customized holidays wants to modernize its online booking system. Currently, customers have to contact the agency by phone or email to book their trips, resulting in delays and inefficiencies. The agency needs an online solution that will enable customers to browse offers, personalize their trips, and book autonomously.</p><br>
+    </div>
+
+       <!-- Line with Plane -->
+       <div class="line-container">
+        <div class="line"></div>
+        <img src="images/plane2.png" alt="Plane" class="plane-image">
+        <div class="line"></div>
+    </div>
+
+    <footer>
+       
+
+
+    
+
+     <!-- Creative Contact Section -->
+     <div style="background-color: #ffe4ec; color: #004d40; padding: 40px 0; text-align: center; margin-top: 30px;">
+        <h2 style="font-size: 28px; color: #ff80ab; margin-bottom: 20px;">Let's Get In Touch! </h2>
+        <img src="images/2.png" alt="contact" width="90"><br><br><br>
+        <p style="font-size: 18px; max-width: 600px; margin: 0 auto; color: #004d40;">Whether you have a question, want to share your travel dreams, or just want to chat about the best vacation spots, we’d love to hear from you! Drop us a message and let’s make magic happen.</p>
+        
+        <div style="margin-top: 30px;">
+            <a href="mailto:contact@esprit.tn" style="background-color: #ff80ab; color: white; padding: 15px 30px; text-decoration: none; border-radius: 30px; font-size: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: background-color 0.3s;">📧 Email Us</a>
+        </div>
+        
+        <div style="margin-top: 20px;">
+            <p style="font-size: 18px; color: #004d40;">or give us a call: <a href="tel:+21612345678" style="color: #ff80ab; text-decoration: none;">+216 12 345 678</a></p>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <a href="https://instagram.com/youragency" target="_blank" style="color: #ff80ab; margin-right: 10px;">📷 Instagram</a>
+            <a href="https://facebook.com/youragency" target="_blank" style="color: #ff80ab; margin-left: 10px;">👍 Facebook</a><br>
+            <p>1,2 rue Andre Ampere - 2083</p>
+            <p>Technological Pole - El Ghazela</p>
+        </div>
+    </div>
+    <div align="center">
+        <a href="addTravelOffer.html" class="add-offer-btn">Add Offer</a><br>
+        <p>&copy; Your Website 2024</p>
+    </div>
+
+</body>
+</html>

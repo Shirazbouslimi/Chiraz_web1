@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Travel Offer</title>
+    <link rel="icon" href="images/plane2.png" type="image/png">
+    <style>
+        body {
+            background-color: #e0f7fa; 
+            font-family: 'Verdana', sans-serif;
+            color: #01579b;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #004d40;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        form {
+            background-color: #b2ebf2; 
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 2px solid #ff80ab; 
+        }
+        label {
+            font-size: 18px;
+            color: #004d40; 
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 2px solid #ff80ab; 
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        input[type="submit"],
+        button {
+            background-color: #ff80ab; 
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover,
+        button:hover {
+            background-color: #ff4081; 
+        }
+        a {
+            text-decoration: none;
+            color: #ff80ab; 
+            font-size: 18px;
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+        a:hover {
+            color: #ff4081; 
+        }
+        .line-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .line {
+            flex: 1;
+            border-top: 2px solid #ff80ab; 
+            height: 1px;
+            margin: 0 10px;
+        }
+        .plane-image {
+            width: 30px;
+            height: auto;
+        }
+        .error-message {
+            color: red; /* Couleur rouge pour les messages d'erreur */
+            margin-top: -15px; /* Positionner le message d'erreur plus près du champ */
+            margin-bottom: 20px; /* Espace entre le message d'erreur et le champ suivant */
+            font-size: 14px; /* Taille de police pour le message d'erreur */
+        }
+        .success-message {
+            color: green; /* Couleur verte pour les messages de succès */
+            margin-top: 5px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('monFormulaire');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); 
+            });
+
+            const addOfferButton2 = document.getElementById('addOffer2');
+
+            addOfferButton2.addEventListener('click', function(event) {
+                event.preventDefault(); 
+                validateForm(form);
+            });
+
+       
+            document.getElementById('titre').addEventListener('keyup', function() {
+                checkTitle(this.value);
+            });
+
+            document.getElementById('destination').addEventListener('keyup', function() {
+                checkDestination(this.value);
+            });
+
+            function validateForm(form) {
+                const messages = document.querySelectorAll('.error-message, .success-message');
+                messages.forEach(msg => msg.remove());
+
+                let valid = true;
+
+              
+                const titre = document.getElementById('titre').value;
+                if (titre.length < 3) {
+                    showError('titre', "Le titre doit contenir au moins 3 caractères.");
+                    valid = false;
+                } else {
+                    showSuccess('titre', "Titre valide !");
+                }
+
+             
+                const destination = document.getElementById('destination').value;
+                const destinationRegex = /^[A-Za-z\s]+$/;
+                if (destination.length < 3 || !destinationRegex.test(destination)) {
+                    showError('destination', "La destination doit contenir uniquement des lettres et des espaces, et au moins 3 caractères.");
+                    valid = false;
+                } else {
+                    showSuccess('destination', "Destination valide !");
+                }
+
+              
+                const dateDepart = new Date(document.getElementById('dateDepart').value);
+                const dateRetour = new Date(document.getElementById('dateRetour').value);
+                if (isNaN(dateDepart)) {
+                    showError('dateDepart', "La date de départ doit être valide.");
+                    valid = false;
+                }
+                if (isNaN(dateRetour)) {
+                    showError('dateRetour', "La date de retour doit être valide.");
+                    valid = false;
+                }
+                if (dateRetour <= dateDepart) {
+                    showError('dateRetour', "La date de retour doit être ultérieure à la date de départ.");
+                    valid = false;
+                } 
+
+         
+                const prix = parseFloat(document.getElementById('prix').value);
+                if (isNaN(prix) || prix <= 0) {
+                    showError('prix', "Le prix doit être un nombre positif.");
+                    valid = false;
+                } else {
+                    showSuccess('prix', "Prix valide !");
+                }
+
+               
+                if (valid) {
+                    form.submit();
+                }
+            }
+
+            function checkTitle(value) {
+                const titreField = document.getElementById('titre');
+                const messages = document.querySelectorAll('.error-message, .success-message');
+                messages.forEach(msg => msg.remove());
+
+                if (value.length < 3) {
+                    showError('titre', "Le titre doit contenir au moins 3 caractères.");
+                } else {
+                    showSuccess('titre', "Correct");
+                }
+            }
+
+            function checkDestination(value) {
+                const destinationField = document.getElementById('destination');
+                const messages = document.querySelectorAll('.error-message, .success-message');
+                messages.forEach(msg => msg.remove());
+
+                const destinationRegex = /^[A-Za-z\s]+$/;
+                if (value.length < 3 || !destinationRegex.test(value)) {
+                    showError('destination', "La destination doit contenir uniquement des lettres et des espaces, et au moins 3 caractères.");
+                } else {
+                    showSuccess('destination', "Correct");
+                }
+            }
+
+            function showError(fieldId, message) {
+                const field = document.getElementById(fieldId);
+                const error = document.createElement('div');
+                error.classList.add('error-message');
+                error.textContent = message;
+                field.parentNode.insertBefore(error, field.nextSibling); 
+            }
+
+            function showSuccess(fieldId, message) {
+                const field = document.getElementById(fieldId);
+                const success = document.createElement('div');
+                success.classList.add('success-message');
+                success.textContent = message;
+                field.parentNode.insertBefore(success, field.nextSibling); 
+            }
+        });
+
+        
+
+    </script>
+</head>
+
+<body>
+<div align="center">
+    <h1>Add a Travel Offer</h1>
+    <img src="images/12.png" width="100"><br><br>
+
+    <form id="monFormulaire">
+        <label for="titre">Titre:</label>
+        <input type="text" id="titre" required>
+        
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" required>
+        
+        <label for="dateDepart">Date de départ:</label>
+        <input type="date" id="dateDepart" required>
+        
+        <label for="dateRetour">Date de retour:</label>
+        <input type="date" id="dateRetour" required>
+        
+        <label for="prix">Prix:</label>
+        <input type="number" id="prix" required>
+        
+        <label>Availability:</label>
+        <input type="checkbox"> 
+
+        <br>
+        <label for="categories">Categories:</label>
+        <select name="categorie" id="categories">
+            <option>Adventure</option>
+            <option>Relaxing</option>
+            <option>Other</option>
+        </select><br><br>
+        <div class="video-section">
+            <video width="60%" autoplay loop muted>
+                <source src="images/offer.mp4" type="video/mp4">
+            </video>
+        </div><br><br>
+       
+       
+        <button id="addOffer2">Add Offer </button><br><br>
+    </form>
+<br><br>
+</div>
+
+
+<div class="line-container">
+    <div class="line"></div>
+    <img src="images/plane2.png" alt="Plane" class="plane-image">
+    <div class="line"></div>
+</div>
+<a href="at1.html">Home</a>
+</body>
+</html>
