@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGRICORE</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f1f8e9;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #388e3c 30%, #66bb6a 100%);
+            border-bottom: 5px solid #8bc34a;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+        }
+
+        .nav-container img {
+            width: 100px;
+            height: auto;
+        }
+
+        nav a {
+            color: #8bc34a;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #aed581;
+        }
+
+        .main-content {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .video-section {
+            overflow: hidden; /* Prevents scrolling issues */
+        }
+
+        .video-section video {
+            width: 100%; /* Extend video to cover full width */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .main-content h1 {
+            font-size: 42px;
+            color: #2e7d32;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .main-content p {
+            font-size: 20px;
+            color: #388e3c;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        h2.section-title {
+            font-size: 30px;
+            color: #2e7d32;
+            text-transform: uppercase;
+            border-bottom: 2px solid #8bc34a;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 20px; /* Reduced space before the about section */
+        }
+
+        .offers-table {
+            width: 80%;
+            margin: 0 auto;
+            border: 2px solid #8bc34a;
+            border-radius: 15px;
+            background-color: #dcedc8;
+            padding: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px; /* Further reduced space below the offers table */
+        }
+
+        .offers-table td {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .offers-table img {
+            width: 180px; /* Increased size */
+            height: 180px; /* Increased size */
+            object-fit: cover;
+            border: 3px solid #8bc34a;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s; /* Animation on hover */
+        }
+
+        .offers-table img:hover {
+            transform: scale(1.1); /* Slightly enlarge on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+        }
+
+        .offers-table p {
+            font-size: 18px;
+            color: #8bc34a;
+            margin-top: 10px;
+        }
+
+        .about-section {
+            margin: 5px 0; /* Further reduced margin for spacing */
+            text-align: center;
+            padding: 40px 20px; /* Adjusted padding for better spacing */
+        }
+
+        .about-section h3 {
+            font-size: 28px;
+            color: #2e7d32;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            color: #388e3c;
+            width: 70%;
+            margin: 0 auto;
+            line-height: 1.6;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+
+        footer {
+            background-color: #388e3c;
+            padding: 30px 40px;
+            border-top: 5px solid #8bc34a;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-link {
+            color: #8bc34a;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: #aed581;
+        }
+
+        .add-offer-btn {
+            display: inline-block;
+            font-size: 20px;
+            color: white;
+            background-color: #8bc34a;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 15px;
+            transition: background-color 0.3s;
+            margin-top: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .add-offer-btn:hover {
+            background-color: #aed581;
+        }
+
+
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Menu déroulant caché par défaut */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #c9ffb2;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            min-width: 150px;
+            right: 0;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        /* Apparence du menu déroulant lorsqu'on survole */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ffffff;
+        }
+
+
+    </style>
+    <script>
+        // Smooth scrolling function
+        document.addEventListener('DOMContentLoaded', function () {
+            const links = document.querySelectorAll('nav a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault(); // Prevent default anchor click behavior
+                    const targetId = this.getAttribute('href'); // Get the href attribute
+                    const targetElement = document.querySelector(targetId); // Select the target element
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY; // Get the position of the target
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth' // Smooth scroll
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <img src="esprit.png" alt="Logo">
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="#about">About</a>
+                
+                    
+                    
+               
+                <a href="shop.html">Shop</a>
+                <a href="#contact">Contact</a>
+                <a href="mycart.html">MyCart</a>
+                <div class="dropdown">
+                    <a href="">Profile settings</a>
+                    <div class="dropdown-content">
+                        <a href="profile2.html">Mon profil</a>
+                        <a href="settings.html">Paramètres</a>
+                        <a href="login.html">Déconnecter</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <h1>AGRICORE</h1>
+        <p>Best deals - best offers and more...</p>
+
+        <div class="video-section">
+            <video autoplay loop muted>
+                <source src="agri.mov" type="video/quicktime">
+                <source src="agrii.mp4" type="video/mp4"> <!-- Fallback option -->
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <h2 class="section-title">Our Services</h2>
+    
+        <table class="offers-table">
+            <tr align="center">
+                <td>
+                    <img src="advice.png" alt="Advice Service">
+                    <p>Expert Advice</p>
+                </td>
+                <td>
+                    <img src="shop.png" alt="Shop Service">
+                    <p>Shop</p>
+                </td>
+                <td>
+                    <img src="sell.png" alt="Sell Service">
+                    <p>Sell</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="about-section" id="about"> <!-- Added ID -->
+        <h3>About Us</h3><br>
+        <!-- Logo added here -->
+        <p>Welcome to AGRICORE, where agriculture meets innovation and convenience! 
+           <br><br> Discover a vibrant marketplace with handpicked, farm-fresh products that bring the best of nature to your doorstep. <br>Connect with specialists to optimize your agricultural practices, from crop management to sustainable farming techniques. Plus, with our easy-to-use selling tools, growers can reach a larger audience and expand their business with just a few clicks.
+           <br><br><br>
+           AGRICORE isn’t just a platform; it’s a community. Join us and be a part of a sustainable, thriving future for agriculture!
+           <br><br><br><br>
+           <img src="up.jpg" alt="Logo" style="width: 400px; height: auto; margin-bottom: 20px;"> <br><br>
+        </p>
+    </div>
+<br><br><br><br>
+<footer id="contact"> 
+    <h3>Let's Get In Touch!</h3><br>
+    <img src="2.png" alt="contact" width="90"><br><br><br>
+    <p style="font-size: 18px; max-width: 600px; margin: 0 auto; color: #ffffff;">
+        Whether you have a question, want to share your ideas, or just want to chat about agriculture, we’d love to hear from you! 
+        Drop us a message and let’s make great things happen together.
+    </p><br><br>
+    <a href="mailto:contact@agricore.com" class="contact-link">📧 Email Us</a>
+    <p>or call us: <a href="tel:+21612345678" class="contact-link">+216 12 345 678</a></p>
+    <p>Follow us on <a href="https://instagram.com/youragency" target="_blank" class="contact-link">Instagram</a> and <a href="https://facebook.com/youragency" target="_blank" class="contact-link">Facebook</a></p>
+    
+    <!-- Reclamation Button -->
+    <br><br>
+    <a href="reclamation.html" class="contact-link" style="background-color: #558b2f; color: white; padding: 10px 20px; text-decoration: none; border-radius: 30px;">
+        📝 Reclamation
+    </a>
+    <p>&copy; AGRICORE 2024</p>
+</footer>

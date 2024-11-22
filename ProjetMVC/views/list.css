@@ -1,0 +1,111 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+een;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Bouton "Ajouter un utilisateur" */
+.add-user-btn {
+    background-color: #10b17e; /* Matching Green Color */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-d
+th, td {
+    padding: 15px;
+    text-align: left;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Style des en-têtes du tableau */
+th {
+    background-color: #10b17e; /* Matching Green Color */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Lignes du tableau */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Effet de survol des lignes du tableau */
+tr:hover {
+    background-color: #e1f5c4; /* Light Green */
+    transform: scale(1.02);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Style des boutons */
+a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+/* Bouton de mise à jour */
+a.update-btn {
+    background-color: #10b17e; /* Matching Green Color */
+}
+
+/* Bouton de suppression */
+a.delete-btn {
+    background-color: #f44336;
+}
+
+/* Effet sur les boutons */
+a.update-btn:hover {
+    background-color: #0f9c6b; /* Slightly darker green */
+}
+
+a.delete-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* Mise en forme du tableau vide */
+.empty-table {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: #888;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    th, td {
+        padding: 12px;
+    }
+    table {
+        font-size: 12px;
+    }
+    .container {
+        width: 90%;
+        margin: 20px;
+    }
+}
+
+/* Animation pour les boutons */
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+.add-user-btn:hover {
+    animation: bounce 0.3s ease;
+}
